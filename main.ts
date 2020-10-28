@@ -5,30 +5,23 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile7, function (sprite, location) {
     game.over(true)
+    info.changeScoreBy(1000)
 })
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile6, function (sprite, location) {
     game.over(true)
+    info.changeScoreBy(500)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    if (sprite.y < otherSprite.top) {
+        otherSprite.destroy()
+        info.changeScoreBy(100)
+    } else {
+        game.over(false)
+    }
 })
 let Player1: Sprite = null
-Player1 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . f f f f f f . . . . . 
-    . . . f f e e e e f 2 f . . . . 
-    . . f f e e e e f 2 2 2 f . . . 
-    . . f e e e f f e e e e f . . . 
-    . . f f f f e e 2 2 2 2 e f . . 
-    . . f e 2 2 2 f f f f e 2 f . . 
-    . f f f f f f f e e e f f f . . 
-    . f f e 4 4 e b f 4 4 e e f . . 
-    . f e e 4 d 4 1 f d d e f f . . 
-    . . f e e e 4 d d d d f d d f . 
-    . . . . f e e 4 e e e f b b f . 
-    . . . . f 2 2 2 4 d d e b b f . 
-    . . . f f 4 4 4 e d d e b f . . 
-    . . . f f f f f f e e f f . . . 
-    . . . . f f . . . f f f . . . . 
-    `, SpriteKind.Player)
-tiles.setTilemap(tiles.createTilemap(hex`320010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000d0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a000000000000000000000000000000000000000d0d080d000000000000000000000000000000000000000000000000000009000000000000000000000000000000000000000000000000000000040200000000000000000000000000000000000c0000090000000000000000000000000000000000000000000000000000040606020000000000000000000000000000000000000009000000000000000000000700000000000000000000000000000406060606020000000000000000000000000000000000000b00000000000000000001010101010200000401010101010101060606060606010101020000040200000402000600060004010101020000000000000606060606030000050606060606060606060606060606060603000005030000050300060006000506060603000000000000060606060603000005060606060606060606060606060606060300000503000005030006000600050606060300000000000006060606060300000506060606060606060606060606060606030000050300000503000600060005060606030000000000000606060606030000050606060606060606060606060606060603000005030000050300060006000506060603000000000000`, img`
+info.setScore(0)
+tiles.setTilemap(tiles.createTilemap(hex`32001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000090000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000300000000000000000000000000000000000000090908090000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000c0b00000000000000000000000000000000000500000200000000000000000000000000000000000000000000000000000c0d0d0b0000000000000000000000000000000000000002000000000000000000000100000000000006000000000000070c0d0d0d0d0b000000000000000000000000000000000000040000000000000000000a0a0a0a0a0b00000c0a0a0a0a0a0a0a0d0d0d0d0d0d0a0a0a0b00000c0b00000c0b000d000d000c0a0a0a0b0000000000000d0d0d0d0d0e00000f0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0e00000f0e00000f0e000d000d000f0d0d0d0e0000000000000d0d0d0d0d0e00000f0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0e00000f0e00000f0e000d000d000f0d0d0d0e0000000000000d0d0d0d0d0e00000f0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0e00000f0e00000f0e000d000d000f0d0d0d0e0000000000000d0d0d0d0d0e00000f0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0e00000f0e00000f0e000d000d000f0d0d0d0e000000000000`, img`
     ..................................................
     ..................................................
     ..................................................
@@ -45,13 +38,96 @@ tiles.setTilemap(tiles.createTilemap(hex`320010000000000000000000000000000000000
     .....2..2................2..22..22.2.2.2...2......
     .....2..2................2..22..22.2.2.2...2......
     .....2..2................2..22..22.2.2.2...2......
-    `, [myTiles.transparency16,sprites.dungeon.darkGroundNorth,sprites.dungeon.darkGroundNorthEast0,sprites.dungeon.darkGroundEast,sprites.dungeon.darkGroundNorthWest0,sprites.dungeon.darkGroundWest,sprites.dungeon.darkGroundCenter,myTiles.tile1,myTiles.tile5,myTiles.tile6,myTiles.tile7,myTiles.tile8,sprites.builtin.forestTiles0,myTiles.tile9], TileScale.Sixteen))
+    `, [myTiles.transparency16,myTiles.tile1,myTiles.tile6,myTiles.tile7,myTiles.tile8,sprites.builtin.forestTiles0,myTiles.tile10,myTiles.tile11,myTiles.tile12,myTiles.tile13,myTiles.tile14,myTiles.tile15,myTiles.tile16,myTiles.tile17,myTiles.tile18,myTiles.tile19], TileScale.Sixteen))
+Player1 = sprites.create(img`
+    ......777771....
+    .....777777777..
+    .....eeee484....
+    .....e4e4484....
+    .....e4e44444...
+    .....ee4444e44..
+    .....44444eee...
+    ......44444.....
+    .....78777......
+    ....77877877....
+    ...7778888777...
+    ..777888888777..
+    ..117858858711..
+    ..111888888111..
+    ..118888888811..
+    ....88888888....
+    ....888..888....
+    ...eee....eee...
+    ..eeee....eeee..
+    `, SpriteKind.Player)
+tiles.placeOnRandomTile(Player1, myTiles.tile1)
 controller.moveSprite(Player1, 100, 0)
 Player1.ay = 300
 scene.cameraFollowSprite(Player1)
-tiles.placeOnRandomTile(Player1, myTiles.tile1)
+scene.setBackgroundColor(9)
+let goomba = sprites.create(img`
+    . . . . . . e e e e . . . . . . 
+    . . . . . e e e e e e . . . . . 
+    . . . . e e e e e e e e . . . . 
+    . . . e e e e e e e e e e . . . 
+    . . e f f e e e e e e f f e . . 
+    . e e e 1 f e e e e f 1 e e e . 
+    . e e e 1 f f f f f f 1 e e e . 
+    e e e e 1 f 1 e e 1 f 1 e e e e 
+    e e e e 1 1 1 e e 1 1 1 e e e e 
+    e e e e e e e e e e e e e e e e 
+    . e e e e d d d d d d e e e e . 
+    . . . . d d d d d d d d . . . . 
+    . . . . d d d d d d d d f f . . 
+    . . . f f d d d d d f f f f f . 
+    . . . f f f d d d f f f f f f . 
+    . . . . f f f . . f f f f f . . 
+    `, SpriteKind.Enemy)
+tiles.placeOnRandomTile(goomba, myTiles.tile10)
+goomba.x += 14
 game.onUpdate(function () {
-    if (Player1.y > 247) {
+    if (Player1.y > 235) {
         game.over(false)
+    }
+    if (goomba.tileKindAt(TileDirection.Left, myTiles.tile10)) {
+        goomba.vx = 50
+        goomba.setImage(img`
+            . . . . . . e e e e . . . . . . 
+            . . . . . e e e e e e . . . . . 
+            . . . . e e e e e e e e . . . . 
+            . . . e e e e e e e e e e . . . 
+            . . e f f e e e e e e f f e . . 
+            . e e e 1 f e e e e f 1 e e e . 
+            . e e e 1 f f f f f f 1 e e e . 
+            e e e e 1 f 1 e e 1 f 1 e e e e 
+            e e e e 1 1 1 e e 1 1 1 e e e e 
+            e e e e e e e e e e e e e e e e 
+            . e e e e d d d d d d e e e e . 
+            . . . . d d d d d d d d . . . . 
+            . . . . d d d d d d d d f f . . 
+            . . . f f d d d d d f f f f f . 
+            . . . f f f d d d f f f f f f . 
+            . . . . f f f . . f f f f f . . 
+            `)
+    } else if (goomba.tileKindAt(TileDirection.Right, myTiles.tile11)) {
+        goomba.vx = -50
+        goomba.setImage(img`
+            . . . . . . e e e e . . . . . . 
+            . . . . . e e e e e e . . . . . 
+            . . . . e e e e e e e e . . . . 
+            . . . e e e e e e e e e e . . . 
+            . . e f f e e e e e e f f e . . 
+            . e e e 1 f e e e e f 1 e e e . 
+            . e e e 1 f f f f f f 1 e e e . 
+            e e e e 1 f 1 e e 1 f 1 e e e e 
+            e e e e 1 1 1 e e 1 1 1 e e e e 
+            e e e e e e e e e e e e e e e e 
+            . e e e e d d d d d d e e e e . 
+            . . . . d d d d d d d d . . . . 
+            . . f f d d d d d d d d . . . . 
+            . f f f f f d d d d d f f . . . 
+            . f f f f f f d d d f f f . . . 
+            . . f f f f f . . f f f . . . . 
+            `)
     }
 })
