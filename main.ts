@@ -375,7 +375,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
             . f f f f f . . . . f f f f f . 
             `)
         music.pewPew.play()
+        otherSprite.setVelocity(0, 0)
         Player1.vy = -75
+        animation.stopAnimation(animation.AnimationTypes.All, otherSprite)
         pause(500)
         sprite.setImage(img`
             ......777771....
