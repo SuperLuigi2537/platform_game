@@ -94,6 +94,41 @@
         "mimeType": "image/x-mkcd-f4",
         "tilemapTile": true
     },
+    "tile12": {
+        "data": "hwQQABAAAAARgRERERHxERERiIiIiPiBERGIiIiIiB8REYiIiIiIHxERiIiIiIj4ERGIiIiIiPgREYiIiIiI+BERiIiIiIj4ERGIiIiIiP8R8f//////ERGBEREYERGIERGI+B+IiIgREYiIH4iIiBERiIgfiIiIERGIiB+IiIgRgf//+P///w==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true
+    },
+    "tile20": {
+        "data": "hwQQABAAAAARgRERERHxERERiIiIiPiBERGIiIiIiB8REYiIiIiIHxERiIiIiIj4ERGIiIiIiPgREYiIiIiI+BERiIiIiIj4ERGIiIiIiP8R8f//////ERGBEREUERGIERGI+B+IiIgREYiIH4iIiBEREREREREREREREREREREREREREREREQ==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true
+    },
+    "tile21": {
+        "data": "hwQQABAAAACBiIiIiPiB+IGIiIiIiB/4gYiIiIiIH/iBiIiIiIgf8YGIiIiIiP+PgYiIiIj/ERH//////xGI+BgRgRERiIj4gYj/gYiIiPiBiPiBiIiI+IGI+IGIiIj4gYj4gYiIiP/4/4/x////jxEREREREREREREREREREREREREREREREQ==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true
+    },
+    "tile22": {
+        "data": "hwQQABAAAAAREREREREREREREREREREREREREREREREYERERER8RgYGIiIiIH4j4gYiIiIj4gfiBiIiIiPiB+IGIiIiIiB/4gYiIiIiIH/iBiIiIiIgf8YGIiIiIiP+PgYiIiIj/ERH//////xGI+BgRgRERiIj4gYj/gYiIiPiBiPiBiIiI+A==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true
+    },
+    "tile23": {
+        "data": "hwQQABAAAACPiI+Ij4iPiI+Ij4iPiI+Ij4iPiI+Ij4iPiP//j4j//4+Ij4iPiI+Ij4iPiI+Ij4iPiI+Ij4iPiP//j4j//4+Ij4iPiI+Ij4iPiI+Ij4iPiI+Ij4iPiI+Ij4j//4+I//+PiI+Ij4iPiI+Ij4iPiI+Ij4iPiI+Ij4iPiI+Ij4iPiA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true
+    },
+    "tile24": {
+        "data": "hwQQABAAAAARERERERERERERERERERERERERERERERERERHxEREYEYiIiPiBiB8RiIiIiB+IHxGIiIiIH4gfEYiIiIj4gR8RiIiIiPiBHxGIiIiI+BEfEYiIiIj4/xgRiIiI+B8RERH///8fgYgfEREYEYGIiB8R+B+IiIiIHxGIH4iIiIgfEQ==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true
+    },
+    "tile25": {
+        "data": "hwQQABAAAAARERHxEREYEYiIiPiBiB8RiIiIiB+IHxGIiIiIH4gfEYiIiIj4gR8RiIiIiPiBHxGIiIiI+BEfEYiIiIj4/xgRiIiI+B8RERH///8fgYgfEREYEYGIiB8R+B+IiIiIHxGIH4iIiIgfEYgfiIiIiB8RiB+IiIj4HxH/GP////8YEQ==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",
